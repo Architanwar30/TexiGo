@@ -1,9 +1,10 @@
+import { ClerkProvider } from "@clerk/nextjs";
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
-import { ClerkProvider } from "@clerk/nextjs";
 import { Inter,Outfit } from 'next/font/google'
 import NavBar from "@/components/NavBar";
+
 
 const outfit = Outfit({ subsets: ['latin'] })
 

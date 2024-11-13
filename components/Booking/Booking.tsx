@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from 'react'
 import AutocompleteAddress from './AutocompleteAddress'
 import Cars from './Cars'
+import Cards from './Cards'
 
 function Booking() {
     // const screenHeight=window.innerHeight*0.72;
@@ -14,6 +15,11 @@ function Booking() {
         <div className='pt-0 border=[1px] p-5 rounded-md '>
             <AutocompleteAddress/>
             <Cars/>
+            <Cards/>
+            <button className='w-full bg-gray-500
+            p-1 rounded-md mt-4'>
+                Book
+            </button>
         </div>
     </div>
   )
