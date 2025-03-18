@@ -2,14 +2,19 @@
 
 import CarsList from '@/data/CarsList'
 import Image from 'next/image'
-import React,{ useState } from 'react'
+import React,{ useContext, useState } from 'react'
 
 function Cars() {
     const [selectedCar, setSelectedCar] = useState<number | null>(null);
+    // const{directionData, setDirectionData}=useContext(DirectionDataContext);
+
+    // const getCost=(charges:any)=>{
+    //   return (charges*directionData.routes[0].distace*0.000621371192).toFixed(2)
+    // }
     return (
       <div className="mt-3">
         <h2 className="font-semibold">Select Car</h2>
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-0">
           {CarsList.map((item, index) => (
             <div
               key={index}
@@ -17,6 +22,7 @@ function Cars() {
                 index === selectedCar ? 'border-gray-500' : ''
               }`}
               onClick={() => setSelectedCar(index)}
+              // onCarSelectAmount(getCost(item.charges))}}
             >
               <div className="relative w-full" style={{ height: '100px', overflow: 'hidden' }}>
               <Image

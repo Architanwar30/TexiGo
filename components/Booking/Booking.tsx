@@ -4,9 +4,11 @@ import React, { useEffect, useState } from 'react'
 import AutocompleteAddress from './AutocompleteAddress'
 import Cars from './Cars'
 import Cards from './Cards'
+import { useRouter } from 'next/navigation'
 
 function Booking() {
     // const screenHeight=window.innerHeight*0.72;
+    const router:any=useRouter()
     
     return (
     <div className='p-5'>
@@ -17,7 +19,8 @@ function Booking() {
             <Cars/>
             <Cards/>
             <button className='w-full bg-gray-500
-            p-1 rounded-md mt-4'>
+            p-1 rounded-md mt-4'
+            onClick={()=>router.push('/payment')}>
                 Book
             </button>
         </div>

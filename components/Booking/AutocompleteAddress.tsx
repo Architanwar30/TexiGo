@@ -1,7 +1,9 @@
 "use client";
 
 import React, { useEffect, useState } from 'react';
+import { Source } from 'react-map-gl';
 
+const MAPBOX_RETRIVE_URL="https://api.mapbox.com/search/searchbox/v1/retrieve/dXJuOm1ieHBsYzpJbXM?session_token=0b72e511-9881-48d1-8934-59e3a110a593&country=IN&access_token=pk.eyJ1IjoiZ29yaXNoZ3VwdGEiLCJhIjoiY20zNHE1aDliMDFycjJuc2YzZTlnc3l2bSJ9.j8MvfD8aUTVcTM2Uy7wQ8w"
 interface Address {
   full_address: string;
 }
@@ -84,15 +86,27 @@ function AutocompleteAddress() {
   };
 
   // Handle address selection for either field (source or destination)
-  const handleAddressSelect = (address: string, field: 'source' | 'destination') => {
+  const handleAddressSelect =async (address: string, field: 'source' | 'destination') => {
     if (field === 'source') {
       setSource(address);
       setSelectedAddressSource(address);  // Set the selected address
       setAddressListSource(null); // Hide dropdown
+      console.log()
+
+      const URL2 = MAPBOX_RETRIVE_URL + address;
+      const res =await fetch(MAPBOX_RETRIVE_URL)
+
+      const result=await res.json();
+      console.log(result);
+
     } else {
       setDestination(address);
       setSelectedAddressDestination(address); // Set the selected address
       setAddressListDestination(null); // Hide dropdown
+      const res =await fetch(MAPBOX_RETRIVE_URL + source.mapbox_id)
+
+      const result=await res.json();
+      console.log(result);
     }
   };
 

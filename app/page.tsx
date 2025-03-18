@@ -13,7 +13,7 @@ export default function Home() {
   },[])
   const getUserLocation=()=>{
       navigator.geolocation.getCurrentPosition(function(pos){
-          setUserLocation({
+        setUserLocation({
             lat:pos.coords.latitude,
             lng:pos.coords.longitude
 
